@@ -94,7 +94,7 @@ int main(int argc, const char * argv[]) {
 	const GLubyte* name = glGetString(GL_VENDOR); //·µ»Ø¸ºÔðµ±Ç°OpenGLÊµÏÖ³§ÉÌµÄÃû×Ö
 	const GLubyte* biaoshifu = glGetString(GL_RENDERER); //·µ»ØÒ»¸öäÖÈ¾Æ÷±êÊ¶·û£¬Í¨³£ÊÇ¸öÓ²¼þÆ½Ì¨
 	const GLubyte* OpenGLVersion = glGetString(GL_VERSION); //·µ»Øµ±Ç°OpenGLÊµÏÖµÄ°æ±¾ºÅ
-	printf("OpenGLº%s\n", name);
+	printf("OpenGL%s\n", name);
 	printf("%s\n", biaoshifu);
 	printf("OOpenGL%s\n", OpenGLVersion);
 
