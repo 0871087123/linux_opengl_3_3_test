@@ -165,7 +165,7 @@ int main(int argc, const char * argv[]) {
 		glm::mat4 camera = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 		glUniformMatrix4fv(glGetUniformLocation(program, "p"), 1, GL_FALSE, glm::value_ptr(proj));
 		glUniformMatrix4fv(glGetUniformLocation(program, "v"), 1, GL_FALSE, glm::value_ptr(camera));
-		glUniformMatrix4fv(glGetUniformLocation(program, "m"), 1, GL_FALSE, glm::value_ptr(glm::rotate(angle, glm::vec3(0.0f, 1.0f, 0.0f))));
+		glUniformMatrix4fv(glGetUniformLocation(program, "m"), 1, GL_FALSE, glm::value_ptr(glm::rotate(glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f))));
 
 		glUseProgram(program);
 		glBindVertexArray(vao);
