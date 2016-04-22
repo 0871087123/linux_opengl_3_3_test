@@ -6,9 +6,11 @@
 #include <glm/ext.hpp>
 #include <iostream>
 #include <string>
+#include <assimp/Importer.hpp>
 
 
 using namespace std;
+using namespace Assimp;
 
 const char* v_shader =
 "#version 400\n"
@@ -177,5 +179,7 @@ int main(int argc, const char * argv[]) {
 	}
 
 	glfwDestroyWindow(win);
+
+	new Importer;
 };
 
