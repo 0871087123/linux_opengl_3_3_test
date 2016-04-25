@@ -1,7 +1,6 @@
-.idea
 main
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-gltest*
 Makefile
+*.build/

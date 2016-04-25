@@ -215,5 +215,17 @@ int main() {
   // meshing surface
   CGAL::make_surface_mesh(c2t3, surface, criteria, CGAL::Non_manifold_tag());
   std::cout << "Final number of points: " << tr.number_of_vertices() << "\n";
+
+    for (auto it = (tr.vertices_begin()); it != tr.vertices_end(); it++) {
+        cout << (*it).point().x() << endl;
+        cout << (*it).point().y() << endl;
+        cout << (*it).point().z() << endl;
+    }
+    
+    int i = 0;
+    cout << "Num facet : " << tr.number_of_facets() << endl;
+    for (auto it = tr.facets_begin(); it != tr.facets_end(); it++) {
+        cout << (*it).second << endl;
+    }
 }
 

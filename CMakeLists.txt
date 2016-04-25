@@ -66,6 +66,6 @@ pkg_search_module(ASSIMP REQUIRED assimp)
 include_directories(${ASSIMP_INCLUDE_DIRS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g --std=c++11")
-link_libraries(GL  ${GLEW_STATIC_LIBRARIES}  ${GLFW_STATIC_LIBRARIES} dl X11 ${ASSIMP_STATIC_LIBRARIES})
+link_libraries(${GLEW_STATIC_LIBRARIES}  ${GLFW_STATIC_LIBRARIES} dl ${ASSIMP_STATIC_LIBRARIES})
 
 create_single_source_cgal_program( "main.cpp" )
