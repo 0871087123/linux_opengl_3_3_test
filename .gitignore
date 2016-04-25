@@ -3,4 +3,5 @@ CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
-*.build/
+gltest.build/
+DerivedData/
