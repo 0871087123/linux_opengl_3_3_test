@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A7646351ADBC431FAF7BCBBA"
+               BlueprintIdentifier = "586A9EF82B19486BBFEAFC6D"
                BuildableName = "ZERO_CHECK"
                BlueprintName = "ZERO_CHECK"
-               ReferencedContainer = "container:gltest.xcodeproj">
+               ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A7646351ADBC431FAF7BCBBA"
+            BlueprintIdentifier = "586A9EF82B19486BBFEAFC6D"
             BuildableName = "ZERO_CHECK"
             BlueprintName = "ZERO_CHECK"
-            ReferencedContainer = "container:gltest.xcodeproj">
+            ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A7646351ADBC431FAF7BCBBA"
+            BlueprintIdentifier = "586A9EF82B19486BBFEAFC6D"
             BuildableName = "ZERO_CHECK"
             BlueprintName = "ZERO_CHECK"
-            ReferencedContainer = "container:gltest.xcodeproj">
+            ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

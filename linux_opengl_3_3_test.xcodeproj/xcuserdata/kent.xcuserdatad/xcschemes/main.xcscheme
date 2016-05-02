@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A75C62DAA3AC43B898DD04FA"
+               BlueprintIdentifier = "695306669B4A41DE922369ED"
                BuildableName = "main"
                BlueprintName = "main"
-               ReferencedContainer = "container:gltest.xcodeproj">
+               ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A75C62DAA3AC43B898DD04FA"
+            BlueprintIdentifier = "695306669B4A41DE922369ED"
             BuildableName = "main"
             BlueprintName = "main"
-            ReferencedContainer = "container:gltest.xcodeproj">
+            ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A75C62DAA3AC43B898DD04FA"
+            BlueprintIdentifier = "695306669B4A41DE922369ED"
             BuildableName = "main"
             BlueprintName = "main"
-            ReferencedContainer = "container:gltest.xcodeproj">
+            ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A75C62DAA3AC43B898DD04FA"
+            BlueprintIdentifier = "695306669B4A41DE922369ED"
             BuildableName = "main"
             BlueprintName = "main"
-            ReferencedContainer = "container:gltest.xcodeproj">
+            ReferencedContainer = "container:linux_opengl_3_3_test.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

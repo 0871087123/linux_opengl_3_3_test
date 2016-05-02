@@ -1,4 +1,5 @@
 main
+linux_opengl_3_3_test.build/
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake

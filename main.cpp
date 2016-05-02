@@ -11,7 +11,27 @@
 #include <CGAL/Complex_2_in_triangulation_3.h>
 #include <CGAL/make_surface_mesh.h>
 #include <CGAL/Implicit_surface_3.h>
-
+#include <CGAL/IO/output_surface_facets_to_triangle_soup.h>
+#include <CGAL/IO/output_surface_facets_to_polyhedron.h>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/Polyhedron_3.h>
+#include <CGAL/Extended_homogeneous.h>
+#include <CGAL/Nef_polyhedron_3.h>
+#include <CGAL/Polyhedron_3.h>
+#include <CGAL/IO/Polyhedron_iostream.h>
+#include <CGAL/IO/Nef_polyhedron_iostream_3.h>
+#include <CGAL/Simple_cartesian.h>
+#include <CGAL/Polyhedron_3.h>
+#include <CGAL/IO/Polyhedron_iostream.h>
+#include <CGAL/Polyhedron_items_with_id_3.h>
+// HalfedgeGraph adaptors for Polyhedron_3
+#include <CGAL/boost/graph/graph_traits_Polyhedron_3.h>
+#include <CGAL/boost/graph/properties_Polyhedron_3.h>
+#include <CGAL/Null_matrix.h>
+#include <CGAL/Surface_mesh_deformation.h>
+#include <fstream>
+#include <map>
+#include <queue>
 
 using namespace std;
 using namespace Assimp;
@@ -62,14 +82,69 @@ void error_out(int err, const char* desc) {
 	cout << "Error: " << err << " || " << desc << endl;
 };
 
-int main2(int argc, const char * argv[]) {
+// default triangulation for Surface_mesher
+typedef CGAL::Surface_mesh_default_triangulation_3 Tr;
+// c2t3
+typedef CGAL::Complex_2_in_triangulation_3<Tr> C2t3;
+typedef Tr::Geom_traits GT;
+typedef GT::Sphere_3 Sphere_3;
+typedef GT::Point_3 Point_3;
+typedef GT::FT FT;
+typedef FT (*Function)(Point_3);
+typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
+FT sphere_function (Point_3 p) {
+    const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
+    return x2+y2+z2-1;
+}
+vector<Point_3> get_tr() {
+    Tr tr;            // 3D-Delaunay triangulation
+    C2t3 c2t3 (tr);   // 2D-complex in 3D-Delaunay triangulation
+    // defining the surface
+    std::cout << "1 number of points: " << tr.number_of_vertices() << "\n";
+    Surface_3 surface(sphere_function,             // pointer to function
+                      Sphere_3(CGAL::ORIGIN, 2.)); // bounding sphere
+    // Note that "2." above is the *squared* radius of the bounding sphere!
+    // defining meshing criteria
+    std::cout << "2 number of points: " << tr.number_of_vertices() << "\n";
+    CGAL::Surface_mesh_default_criteria_3<Tr> criteria(30.,  // angular bound
+                                                       0.1,  // radius bound
+                                                       0.1); // distance bound
+    // meshing surface
+    std::cout << "3 number of points: " << tr.number_of_vertices() << "\n";
+    CGAL::make_surface_mesh(c2t3, surface, criteria, CGAL::Non_manifold_tag());
+    std::cout << "Final number of points: " << tr.number_of_vertices() << "\n";
+    
+    CGAL::Polyhedron_3<CGAL::Epick> poly;
+    CGAL::output_surface_facets_to_polyhedron(c2t3, poly);
+//    CGAL::Surface_mesh_deformation<CGAL::Polyhedron_3<CGAL::Epick>> deform(poly);
+//    deform.translate();
+    
+    vector<Point_3> pts;
+    for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
+        auto it2 = it->facet_begin();
+        auto it3 = it2;
+        CGAL_For_all(it2, it3) {
+            pts.push_back(it2->vertex()->point());
+        }
+    }
+
+    cout << pts.size() << endl;
+
+    return pts;
+}
+
+
+int main(int argc, const char * argv[]) {
 	int w = 1024;
 	int h = 768;
-
+    
 	if (!glfwInit()) {
 		cout << "error to init glfw" << endl;
 	}
-
+    
+//    glm::vec4 tmp(-1.0f,-1.0f,1.0f, 1.0f);
+//    tmp *= glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f,0.0f,1.0f));
+    
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -139,11 +214,23 @@ int main2(int argc, const char * argv[]) {
 	glAttachShader(program, fs);
 	glLinkProgram(program);
 
-	//set vbo
+    vector<Point_3> pts = get_tr();
+    int pts_size = pts.size() * 3;
+    GLfloat  * pts_data = (GLfloat *)malloc(sizeof(GLfloat) * pts_size);
+    int i = 0;
+    for (auto it = pts.begin(); it != pts.end(); it++) {
+        pts_data[3 * i + 0] = it->x();
+        pts_data[3 * i + 1] = it->y();
+        pts_data[3 * i + 2] = it->z();
+        cout << *it << endl;
+        i++;
+    }
+    
+    //set vbo
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW);
-
+	glBufferData(GL_ARRAY_BUFFER, (sizeof(GLfloat) * pts_size), pts_data, GL_STATIC_DRAW);
+    
 	//set ibo
 	glGenBuffers(1, &ibo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
@@ -177,7 +264,8 @@ int main2(int argc, const char * argv[]) {
 		glBindVertexArray(vao);
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo);
-		glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_SHORT, nullptr);
+        glDrawArrays(GL_TRIANGLES, 0, pts_size);
+//		glDrawElements(GL_TRIANGLES, 18, GL_UNSIGNED_SHORT, nullptr);
 		glfwPollEvents();
 		glfwSwapBuffers(win);
 	}
@@ -187,45 +275,4 @@ int main2(int argc, const char * argv[]) {
 	new Importer;
 };
 
-// default triangulation for Surface_mesher
-typedef CGAL::Surface_mesh_default_triangulation_3 Tr;
-// c2t3
-typedef CGAL::Complex_2_in_triangulation_3<Tr> C2t3;
-typedef Tr::Geom_traits GT;
-typedef GT::Sphere_3 Sphere_3;
-typedef GT::Point_3 Point_3;
-typedef GT::FT FT;
-typedef FT (*Function)(Point_3);
-typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
-FT sphere_function (Point_3 p) {
-  const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
-  return x2+y2+z2-1;
-}
-int main() {
-  Tr tr;            // 3D-Delaunay triangulation
-  C2t3 c2t3 (tr);   // 2D-complex in 3D-Delaunay triangulation
-  // defining the surface
-  Surface_3 surface(sphere_function,             // pointer to function
-                    Sphere_3(CGAL::ORIGIN, 2.)); // bounding sphere
-  // Note that "2." above is the *squared* radius of the bounding sphere!
-  // defining meshing criteria
-  CGAL::Surface_mesh_default_criteria_3<Tr> criteria(30.,  // angular bound
-                                                     0.1,  // radius bound
-                                                     0.1); // distance bound
-  // meshing surface
-  CGAL::make_surface_mesh(c2t3, surface, criteria, CGAL::Non_manifold_tag());
-  std::cout << "Final number of points: " << tr.number_of_vertices() << "\n";
-
-    for (auto it = (tr.vertices_begin()); it != tr.vertices_end(); it++) {
-        cout << (*it).point().x() << endl;
-        cout << (*it).point().y() << endl;
-        cout << (*it).point().z() << endl;
-    }
-    
-    int i = 0;
-    cout << "Num facet : " << tr.number_of_facets() << endl;
-    for (auto it = tr.facets_begin(); it != tr.facets_end(); it++) {
-        cout << (*it).second << endl;
-    }
-}
 

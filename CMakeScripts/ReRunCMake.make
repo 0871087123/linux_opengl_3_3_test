@@ -89,15 +89,16 @@
 /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/CMakeFiles/feature_tests.c\
 /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/CMakeFiles/feature_tests.cxx\
 /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/CMakeLists.txt\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_Common.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_CreateSingleSourceCGALProgram.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_GeneratorSpecificSettings.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_Macros.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_SetupFlags.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_TweakFindBoost.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/CGAL_VersionUtils.cmake\
-/usr/local/Cellar/cgal/4.7/lib/CGAL/UseCGAL.cmake\
 /usr/local/lib/CGAL/CGALConfig.cmake\
 /usr/local/lib/CGAL/CGALExports-release.cmake\
-/usr/local/lib/CGAL/CGALExports.cmake
+/usr/local/lib/CGAL/CGALExports.cmake\
+/usr/local/lib/CGAL/CGALLibConfig.cmake\
+/usr/local/lib/CGAL/CGAL_Common.cmake\
+/usr/local/lib/CGAL/CGAL_CreateSingleSourceCGALProgram.cmake\
+/usr/local/lib/CGAL/CGAL_GeneratorSpecificSettings.cmake\
+/usr/local/lib/CGAL/CGAL_Macros.cmake\
+/usr/local/lib/CGAL/CGAL_SetupFlags.cmake\
+/usr/local/lib/CGAL/CGAL_TweakFindBoost.cmake\
+/usr/local/lib/CGAL/CGAL_VersionUtils.cmake\
+/usr/local/lib/CGAL/UseCGAL.cmake
 	/Applications/CMake.app/Contents/bin/cmake -H/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test -B/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test
