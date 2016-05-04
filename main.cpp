@@ -1,12 +1,14 @@
 #include <iostream>
 #include <GL/glew.h> 
 #include <GLFW/glfw3.h>
+#define CGAL_EIGEN3_ENABLED
 #define GLM_FORCE_RADIANS
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 #include <iostream>
 #include <string>
 #include <assimp/Importer.hpp>
+#include <CGAL/Simple_cartesian.h>
 #include <CGAL/Surface_mesh_default_triangulation_3.h>
 #include <CGAL/Complex_2_in_triangulation_3.h>
 #include <CGAL/make_surface_mesh.h>
@@ -92,10 +94,44 @@ typedef GT::Point_3 Point_3;
 typedef GT::FT FT;
 typedef FT (*Function)(Point_3);
 typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
+
+typedef CGAL::Epick Kernel;
+typedef CGAL::Polyhedron_3<Kernel,CGAL::Polyhedron_items_with_id_3>  Polyhedron;
+typedef boost::graph_traits<Polyhedron>::vertex_descriptor    vertex_descriptor;
+typedef boost::graph_traits<Polyhedron>::vertex_iterator        vertex_iterator;
+typedef boost::graph_traits<Polyhedron>::halfedge_descriptor halfedge_descriptor;
+typedef boost::graph_traits<Polyhedron>::out_edge_iterator    out_edge_iterator;
+
 FT sphere_function (Point_3 p) {
     const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
     return x2+y2+z2-1;
 }
+
+// Collect the vertices which are at distance less or equal to k
+// from the vertex v in the graph of vertices connected by the edges of P
+std::vector<vertex_descriptor> extract_k_ring(const Polyhedron &P, vertex_descriptor v, int k)
+{
+    std::map<vertex_descriptor, int>  D;
+    std::vector<vertex_descriptor>    Q;
+    Q.push_back(v); D[v] = 0;
+    std::size_t current_index = 0;
+    int dist_v;
+    while( current_index < Q.size() && (dist_v = D[ Q[current_index] ]) < k ) {
+        v = Q[current_index++];
+        out_edge_iterator e, e_end;
+        for(boost::tie(e, e_end) = out_edges(v, P); e != e_end; e++)
+        {
+            halfedge_descriptor he = halfedge(*e, P);
+            vertex_descriptor new_v = target(he, P);
+            if(D.insert(std::make_pair(new_v, dist_v + 1)).second) {
+                Q.push_back(new_v);
+            }
+        }
+    }
+    return Q;
+}
+
+
 vector<Point_3> get_tr() {
     Tr tr;            // 3D-Delaunay triangulation
     C2t3 c2t3 (tr);   // 2D-complex in 3D-Delaunay triangulation
@@ -114,17 +150,28 @@ vector<Point_3> get_tr() {
     CGAL::make_surface_mesh(c2t3, surface, criteria, CGAL::Non_manifold_tag());
     std::cout << "Final number of points: " << tr.number_of_vertices() << "\n";
     
-    CGAL::Polyhedron_3<CGAL::Epick> poly;
+    Polyhedron poly;
     CGAL::output_surface_facets_to_polyhedron(c2t3, poly);
-//    CGAL::Surface_mesh_deformation<CGAL::Polyhedron_3<CGAL::Epick>> deform(poly);
-//    deform.translate();
+    CGAL::Surface_mesh_deformation<Polyhedron> deform(poly);
+    
+    vertex_iterator vb, ve;
+    boost::tie(vb,ve) = CGAL::vertices(poly);
+
+    std::vector<vertex_descriptor> cvertices_1 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), 20);
+    std::vector<vertex_descriptor> cvertices_2 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 97), 20);
+    
+//    deform.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
+//
+//    deform.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,0.3,0));
     
     vector<Point_3> pts;
     for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
         auto it2 = it->facet_begin();
         auto it3 = it2;
         CGAL_For_all(it2, it3) {
-            pts.push_back(it2->vertex()->point());
+            pts.push_back(Point_3(it2->vertex()->point().x(),
+                                  it2->vertex()->point().y(),
+                                  it2->vertex()->point().z()));
         }
     }
 
@@ -141,9 +188,6 @@ int main(int argc, const char * argv[]) {
 	if (!glfwInit()) {
 		cout << "error to init glfw" << endl;
 	}
-    
-//    glm::vec4 tmp(-1.0f,-1.0f,1.0f, 1.0f);
-//    tmp *= glm::rotate(glm::mat4(1.0f), glm::radians(90.0f), glm::vec3(0.0f,0.0f,1.0f));
     
 	glfwWindowHint(GLFW_SAMPLES, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

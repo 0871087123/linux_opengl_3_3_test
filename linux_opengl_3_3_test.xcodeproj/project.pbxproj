@@ -9,9 +9,9 @@
 /* Begin PBXAggregateTarget section */
 		586A9EF82B19486BBFEAFC6D /* ZERO_CHECK */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = B96AAB4344274EA7BF55617B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildConfigurationList = 0B55B1411225436090E129DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
 			buildPhases = (
-				20E2CDA675BD4A00AB7601D5 /* CMake Rules */,
+				1FEB4920577F47A58E3F51D5 /* CMake Rules */,
 			);
 			dependencies = (
 			);
@@ -20,13 +20,13 @@
 		};
 		75D03955FC8A4E76BA0D5143 /* ALL_BUILD */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 4E05F9AC05CC40E3BE258E67 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildConfigurationList = 9B1B1202397D4C82A2E0DE37 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
 			buildPhases = (
-				3CEA33060A274CBDBA6A8C10 /* CMake Rules */,
+				B16B0630B55845F49FB37423 /* CMake Rules */,
 			);
 			dependencies = (
-				43DDD763643846809394AE1D /* PBXTargetDependency */,
-				AC82268FA2DF4E26ADAAED17 /* PBXTargetDependency */,
+				6EEC23268D8B4AFBA7196A21 /* PBXTargetDependency */,
+				2B24CD5ECA124357A92C2E61 /* PBXTargetDependency */,
 			);
 			name = ALL_BUILD;
 			productName = ALL_BUILD;
@@ -34,161 +34,165 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		372E486D1CD719A5006E66D5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E486C1CD719A5006E66D5 /* CFNetwork.framework */; };
-		372E486F1CD719AC006E66D5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E486E1CD719AC006E66D5 /* Cocoa.framework */; };
-		372E48711CD719B0006E66D5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48701CD719B0006E66D5 /* OpenGL.framework */; };
-		372E48731CD719B4006E66D5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48721CD719B4006E66D5 /* GLKit.framework */; };
-		372E48751CD719BA006E66D5 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48741CD719BA006E66D5 /* IOKit.framework */; };
-		372E48771CD719BE006E66D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48761CD719BE006E66D5 /* CoreGraphics.framework */; };
-		372E48791CD719C4006E66D5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48781CD719C4006E66D5 /* CoreVideo.framework */; };
-		6EB5D841855C4409AB85B12C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4C943E7361C449028395DC70 /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		372E487C1CD71E76006E66D5 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E487B1CD71E76006E66D5 /* CFNetwork.framework */; };
+		372E487E1CD71EB6006E66D5 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E487D1CD71EB6006E66D5 /* IOKit.framework */; };
+		372E48801CD71EBA006E66D5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E487F1CD71EBA006E66D5 /* OpenGL.framework */; };
+		372E48821CD71EC0006E66D5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48811CD71EC0006E66D5 /* CoreFoundation.framework */; };
+		372E48841CD71EC5006E66D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48831CD71EC5006E66D5 /* Foundation.framework */; };
+		372E48861CD71EC9006E66D5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48851CD71EC9006E66D5 /* CoreGraphics.framework */; };
+		372E48881CD71ED3006E66D5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48871CD71ED3006E66D5 /* Cocoa.framework */; };
+		372E488A1CD71EDF006E66D5 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372E48891CD71EDF006E66D5 /* CoreVideo.framework */; };
+		C0F963A2A8D4403F81C9A2E3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B80F5194FA9E4BEA977731DE /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F6EE9DD7FE640D5A1FEF12E /* PBXContainerItemProxy */ = {
+		0457774BA4B744DB9FD09EA3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E934B03CD95244B18E115C28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586A9EF82B19486BBFEAFC6D;
+			remoteInfo = ZERO_CHECK;
+		};
+		5751F5F423A94899B3EFB57C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E934B03CD95244B18E115C28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586A9EF82B19486BBFEAFC6D;
+			remoteInfo = ZERO_CHECK;
+		};
+		716FD5D6307B4C3AA2FBB52D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E934B03CD95244B18E115C28 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 695306669B4A41DE922369ED;
 			remoteInfo = main;
 		};
-		8C227660B99B4224B906666A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E934B03CD95244B18E115C28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 586A9EF82B19486BBFEAFC6D;
-			remoteInfo = ZERO_CHECK;
-		};
-		C052F417625E4816A2E86B8E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E934B03CD95244B18E115C28 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 586A9EF82B19486BBFEAFC6D;
-			remoteInfo = ZERO_CHECK;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1EE86A4C100E42A3A10FDFB4 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		372E486C1CD719A5006E66D5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		372E486E1CD719AC006E66D5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		372E48701CD719B0006E66D5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		372E48721CD719B4006E66D5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		372E48741CD719BA006E66D5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
-		372E48761CD719BE006E66D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		372E48781CD719C4006E66D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
-		4C943E7361C449028395DC70 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
-		6086DFAFA6824ED78A001C8F /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		852EFFAECF194DB1A1F774A5 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
-		90404EAB67644E3493C09241 /* main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = main; sourceTree = BUILT_PRODUCTS_DIR; };
+		372E487B1CD71E76006E66D5 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		372E487D1CD71EB6006E66D5 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		372E487F1CD71EBA006E66D5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		372E48811CD71EC0006E66D5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		372E48831CD71EC5006E66D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		372E48851CD71EC9006E66D5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		372E48871CD71ED3006E66D5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		372E48891CD71EDF006E66D5 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		98BD38C0AEF44736985C24E1 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		A6D7159C029B483DA98B36D6 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B37DF9E80CC749629BDCE9C0 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		B80F5194FA9E4BEA977731DE /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		C73A3278DD7E4879B5D5E4B9 /* main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = main; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3776CB331CD713410034211B /* Frameworks */ = {
+		372E487A1CD71E71006E66D5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372E48791CD719C4006E66D5 /* CoreVideo.framework in Frameworks */,
-				372E48771CD719BE006E66D5 /* CoreGraphics.framework in Frameworks */,
-				372E48751CD719BA006E66D5 /* IOKit.framework in Frameworks */,
-				372E48731CD719B4006E66D5 /* GLKit.framework in Frameworks */,
-				372E48711CD719B0006E66D5 /* OpenGL.framework in Frameworks */,
-				372E486F1CD719AC006E66D5 /* Cocoa.framework in Frameworks */,
-				372E486D1CD719A5006E66D5 /* CFNetwork.framework in Frameworks */,
+				372E488A1CD71EDF006E66D5 /* CoreVideo.framework in Frameworks */,
+				372E48881CD71ED3006E66D5 /* Cocoa.framework in Frameworks */,
+				372E48861CD71EC9006E66D5 /* CoreGraphics.framework in Frameworks */,
+				372E48841CD71EC5006E66D5 /* Foundation.framework in Frameworks */,
+				372E48821CD71EC0006E66D5 /* CoreFoundation.framework in Frameworks */,
+				372E48801CD71EBA006E66D5 /* OpenGL.framework in Frameworks */,
+				372E487E1CD71EB6006E66D5 /* IOKit.framework in Frameworks */,
+				372E487C1CD71E76006E66D5 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		193B20CBC3394CDD88C7560C /* ALL_BUILD */ = {
+		05D60530C2B84A7F994815F7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1EFAFA42009C4152A5FA024C /* CMake Rules */,
-				1EE86A4C100E42A3A10FDFB4 /* CMakeLists.txt */,
+				892E7D5778944433A5B5700C /* main */,
+				C40FE53783354E5AA7D91535 /* ALL_BUILD */,
+				B7FE20BB660547C2821999DF /* ZERO_CHECK */,
 			);
-			name = ALL_BUILD;
+			name = Sources;
 			sourceTree = "<group>";
 		};
-		1EFAFA42009C4152A5FA024C /* CMake Rules */ = {
+		09AF0A869ECA4256AE447C7B = {
+			isa = PBXGroup;
+			children = (
+				372E48891CD71EDF006E66D5 /* CoreVideo.framework */,
+				372E48871CD71ED3006E66D5 /* Cocoa.framework */,
+				372E48851CD71EC9006E66D5 /* CoreGraphics.framework */,
+				372E48831CD71EC5006E66D5 /* Foundation.framework */,
+				372E48811CD71EC0006E66D5 /* CoreFoundation.framework */,
+				372E487F1CD71EBA006E66D5 /* OpenGL.framework */,
+				372E487D1CD71EB6006E66D5 /* IOKit.framework */,
+				372E487B1CD71E76006E66D5 /* CFNetwork.framework */,
+				05D60530C2B84A7F994815F7 /* Sources */,
+				6345C0082E414EF998BFA392 /* Resources */,
+				81B6A6AA1C2B48288800A82E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		48337798B9E241CBBFC7CF9F /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				B80F5194FA9E4BEA977731DE /* main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		556223FDFC214EF0B5E0CCB1 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		272A85887B3A4F6190D06EC9 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				ABF95148414243A5B066C682 /* main */,
-				193B20CBC3394CDD88C7560C /* ALL_BUILD */,
-				D965EB113B234AF7866000BE /* ZERO_CHECK */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
-		52DD2FD9DDCB47C19E7C2BC3 /* Source Files */ = {
-			isa = PBXGroup;
-			children = (
-				4C943E7361C449028395DC70 /* main.cpp */,
-			);
-			name = "Source Files";
-			sourceTree = "<group>";
-		};
-		6D21B07F6BBB45EBBB15E54D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				90404EAB67644E3493C09241 /* main */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		9FA65E1427174355B7B39D4C /* Resources */ = {
+		6345C0082E414EF998BFA392 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		A1A0030414AC45D5B4A1CB5F /* CMake Rules */ = {
+		81B6A6AA1C2B48288800A82E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C73A3278DD7E4879B5D5E4B9 /* main */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		892E7D5778944433A5B5700C /* main */ = {
+			isa = PBXGroup;
+			children = (
+				48337798B9E241CBBFC7CF9F /* Source Files */,
+				A6D7159C029B483DA98B36D6 /* CMakeLists.txt */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		B2999D95A867467CA8FE44E2 /* CMake Rules */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = "CMake Rules";
 			sourceTree = "<group>";
 		};
-		ABF95148414243A5B066C682 /* main */ = {
+		B7FE20BB660547C2821999DF /* ZERO_CHECK */ = {
 			isa = PBXGroup;
 			children = (
-				52DD2FD9DDCB47C19E7C2BC3 /* Source Files */,
-				852EFFAECF194DB1A1F774A5 /* CMakeLists.txt */,
-			);
-			name = main;
-			sourceTree = "<group>";
-		};
-		D965EB113B234AF7866000BE /* ZERO_CHECK */ = {
-			isa = PBXGroup;
-			children = (
-				A1A0030414AC45D5B4A1CB5F /* CMake Rules */,
-				6086DFAFA6824ED78A001C8F /* CMakeLists.txt */,
+				B2999D95A867467CA8FE44E2 /* CMake Rules */,
+				98BD38C0AEF44736985C24E1 /* CMakeLists.txt */,
 			);
 			name = ZERO_CHECK;
 			sourceTree = "<group>";
 		};
-		DED25FAB61C74423ADC88C91 = {
+		C40FE53783354E5AA7D91535 /* ALL_BUILD */ = {
 			isa = PBXGroup;
 			children = (
-				372E48781CD719C4006E66D5 /* CoreVideo.framework */,
-				372E48761CD719BE006E66D5 /* CoreGraphics.framework */,
-				372E48741CD719BA006E66D5 /* IOKit.framework */,
-				372E48721CD719B4006E66D5 /* GLKit.framework */,
-				372E48701CD719B0006E66D5 /* OpenGL.framework */,
-				372E486E1CD719AC006E66D5 /* Cocoa.framework */,
-				372E486C1CD719A5006E66D5 /* CFNetwork.framework */,
-				272A85887B3A4F6190D06EC9 /* Sources */,
-				9FA65E1427174355B7B39D4C /* Resources */,
-				6D21B07F6BBB45EBBB15E54D /* Products */,
+				556223FDFC214EF0B5E0CCB1 /* CMake Rules */,
+				B37DF9E80CC749629BDCE9C0 /* CMakeLists.txt */,
 			);
+			name = ALL_BUILD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,19 +200,19 @@
 /* Begin PBXNativeTarget section */
 		695306669B4A41DE922369ED /* main */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2441B91BD0C9432CB333B3F5 /* Build configuration list for PBXNativeTarget "main" */;
+			buildConfigurationList = BEB5D8221A7E4D07AAC89268 /* Build configuration list for PBXNativeTarget "main" */;
 			buildPhases = (
-				83A698CAE6DF4219BD50A4E2 /* Sources */,
-				3776CB331CD713410034211B /* Frameworks */,
+				44FB5A7DF6D742FFBD2D7AF4 /* Sources */,
+				372E487A1CD71E71006E66D5 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AB278691F08E47978A7E3D64 /* PBXTargetDependency */,
+				AAC6AB7125804480BE6FB14F /* PBXTargetDependency */,
 			);
 			name = main;
 			productName = main;
-			productReference = 90404EAB67644E3493C09241 /* main */;
+			productReference = C73A3278DD7E4879B5D5E4B9 /* main */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -219,14 +223,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 			};
-			buildConfigurationList = 9FDA989915CD4B138260017D /* Build configuration list for PBXProject "linux_opengl_3_3_test" */;
+			buildConfigurationList = CF8E945162694550B3958850 /* Build configuration list for PBXProject "linux_opengl_3_3_test" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = DED25FAB61C74423ADC88C91;
+			mainGroup = 09AF0A869ECA4256AE447C7B;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -238,7 +242,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		20E2CDA675BD4A00AB7601D5 /* CMake Rules */ = {
+		1FEB4920577F47A58E3F51D5 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,7 +253,7 @@
 			shellScript = "make -C /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test -f /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
 			showEnvVarsInLog = 0;
 		};
-		3CEA33060A274CBDBA6A8C10 /* CMake Rules */ = {
+		B16B0630B55845F49FB37423 /* CMake Rules */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,46 +267,74 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		83A698CAE6DF4219BD50A4E2 /* Sources */ = {
+		44FB5A7DF6D742FFBD2D7AF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EB5D841855C4409AB85B12C /* main.cpp in Sources */,
+				C0F963A2A8D4403F81C9A2E3 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		43DDD763643846809394AE1D /* PBXTargetDependency */ = {
+		2B24CD5ECA124357A92C2E61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 695306669B4A41DE922369ED /* main */;
-			targetProxy = 3F6EE9DD7FE640D5A1FEF12E /* PBXContainerItemProxy */;
+			targetProxy = 716FD5D6307B4C3AA2FBB52D /* PBXContainerItemProxy */;
 		};
-		AB278691F08E47978A7E3D64 /* PBXTargetDependency */ = {
+		6EEC23268D8B4AFBA7196A21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 586A9EF82B19486BBFEAFC6D /* ZERO_CHECK */;
-			targetProxy = C052F417625E4816A2E86B8E /* PBXContainerItemProxy */;
+			targetProxy = 0457774BA4B744DB9FD09EA3 /* PBXContainerItemProxy */;
 		};
-		AC82268FA2DF4E26ADAAED17 /* PBXTargetDependency */ = {
+		AAC6AB7125804480BE6FB14F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 586A9EF82B19486BBFEAFC6D /* ZERO_CHECK */;
-			targetProxy = 8C227660B99B4224B906666A /* PBXContainerItemProxy */;
+			targetProxy = 5751F5F423A94899B3EFB57C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0AFAEB159B0B4D0D8928D2F8 /* Release */ = {
+		09F4BE6BB15E4996ADBB3FB9 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
 			};
-			name = Release;
+			name = RelWithDebInfo;
 		};
-		0B1200C9AB2547EE899FCE39 /* Debug */ = {
+		0F3EE9CEA2194D94BD04DC65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -324,6 +356,7 @@
 					/usr/local/Cellar/glfw3/3.1.2/include,
 					/usr/local/Cellar/glew/1.11.0/include/GL,
 					/usr/local/include/assimp,
+					/usr/local/include/eigen3/,
 				);
 				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
@@ -359,7 +392,6 @@
 				PRODUCT_NAME = main;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.7.1/include;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -370,113 +402,7 @@
 			};
 			name = Debug;
 		};
-		0E6755EDE6264321B61D8F05 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = Debug;
-		};
-		1B65984900E74F8DACD5C57A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
-			};
-			name = Debug;
-		};
-		227ED9C94B604E699A72AAE3 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ALL_BUILD;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = MinSizeRel;
-		};
-		313C44E788594943B3A31498 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
-			};
-			name = MinSizeRel;
-		};
-		35056B0997AF44F484B88CF0 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
-			};
-			name = RelWithDebInfo;
-		};
-		3C91DC1AB62149F9BE859B60 /* RelWithDebInfo */ = {
+		21933BFB48E4454296825543 /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -514,45 +440,17 @@
 			};
 			name = RelWithDebInfo;
 		};
-		3D6E8BE976B04E889251FA40 /* Release */ = {
+		3DDC9E42EFB44CBC9298035E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
 			};
-			name = Release;
+			name = Debug;
 		};
-		4E0FA6F3B1CA430AB5C9F9E5 /* Release */ = {
+		4379557423924C7FBF65C44F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -590,7 +488,261 @@
 			};
 			name = Release;
 		};
-		505F0C5C50914BF28B31CF45 /* RelWithDebInfo */ = {
+		5BD7129D5FFC4DFB9872C49D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		7582C22B4BAB482797CA4CCF /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
+			};
+			name = MinSizeRel;
+		};
+		76237D6142D84CCC9C647BC7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		8659B927117E4B25A7458ECF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
+			};
+			name = RelWithDebInfo;
+		};
+		996333C1C761453293438B25 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		B2BECA156EA24076B6EC4343 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test/build;
+			};
+			name = Release;
+		};
+		C790E89D6D7140A1A53EAFD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+				);
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		C889EF81D5A44889A288372B /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					CGAL_USE_MPFR,
+					CGAL_USE_GMPXX,
+					CGAL_USE_GMP,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
+					/usr/local/Cellar/glfw3/3.1.2/include,
+					/usr/local/Cellar/glew/1.11.0/include/GL,
+					/usr/local/include/assimp,
+					/usr/local/include/eigen3/,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					/usr/local/lib,
+				);
+				OTHER_CFLAGS = "    -DNDEBUG   ";
+				OTHER_CPLUSPLUSFLAGS = (
+					"--std=c++11",
+					"-DNDEBUG",
+					"-g",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/usr/local/lib/libmpfr.dylib,
+					/usr/local/lib/libgmpxx.dylib,
+					/usr/local/lib/libgmp.dylib,
+					/usr/local/lib/libCGAL.11.0.2.dylib,
+					"/usr/local/lib/libboost_thread-mt.dylib",
+					"/usr/local/lib/libboost_system-mt.dylib",
+					"-lGLEW",
+					"-lglfw3",
+					"-ldl",
+					"-lassimp",
+					/usr/local/lib/libCGAL.11.0.2.dylib,
+					"/usr/local/lib/libboost_thread-mt.dylib",
+					"/usr/local/lib/libboost_system-mt.dylib",
+					"-lGLEW",
+					"-lglfw3",
+					"-ldl",
+					"-lassimp",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = main;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		CB73663058EB4828B03438BD /* RelWithDebInfo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -612,6 +764,7 @@
 					/usr/local/Cellar/glfw3/3.1.2/include,
 					/usr/local/Cellar/glew/1.11.0/include/GL,
 					/usr/local/include/assimp,
+					/usr/local/include/eigen3/,
 				);
 				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
@@ -650,7 +803,6 @@
 				PRODUCT_NAME = main;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.7.1/include;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -661,7 +813,7 @@
 			};
 			name = RelWithDebInfo;
 		};
-		57FC5891FD874F909586AC9E /* Debug */ = {
+		E48E93B858F14D0B9D3C87DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -699,45 +851,7 @@
 			};
 			name = Debug;
 		};
-		6FF2D0C87F0C48159B10A576 /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = MinSizeRel;
-		};
-		DB157A9170694BFC8BDA5560 /* Release */ = {
+		FA0DD9AD023847E2AFBC5744 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -759,6 +873,7 @@
 					/usr/local/Cellar/glfw3/3.1.2/include,
 					/usr/local/Cellar/glew/1.11.0/include/GL,
 					/usr/local/include/assimp,
+					/usr/local/include/eigen3/,
 				);
 				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
@@ -798,7 +913,6 @@
 				PRODUCT_NAME = main;
 				SECTORDER_FLAGS = "";
 				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.7.1/include;
 				USE_HEADERMAP = NO;
 				WARNING_CFLAGS = (
 					"-Wmost",
@@ -809,159 +923,49 @@
 			};
 			name = Release;
 		};
-		E52E05675CC84F509966CA58 /* RelWithDebInfo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				OTHER_CFLAGS = "  ";
-				OTHER_LDFLAGS = " ";
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = ZERO_CHECK;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = RelWithDebInfo;
-		};
-		F9E05D29E98E4F58A1C17CDB /* MinSizeRel */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = "";
-				EXECUTABLE_SUFFIX = "";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
-					CGAL_USE_MPFR,
-					CGAL_USE_GMPXX,
-					CGAL_USE_GMP,
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include,
-					/Volumes/RamDisk/cgal_test/linux_opengl_3_3_test,
-					/usr/local/Cellar/glfw3/3.1.2/include,
-					/usr/local/Cellar/glew/1.11.0/include/GL,
-					/usr/local/include/assimp,
-				);
-				INSTALL_PATH = "";
-				LD_RUNPATH_SEARCH_PATHS = /usr/local/lib;
-				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
-					/usr/local/lib,
-				);
-				OTHER_CFLAGS = "    -DNDEBUG   ";
-				OTHER_CPLUSPLUSFLAGS = (
-					"--std=c++11",
-					"-DNDEBUG",
-					"-g",
-				);
-				OTHER_LDFLAGS = (
-					"-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
-					"-Wl,-search_paths_first",
-					"-Wl,-headerpad_max_install_names",
-					/usr/local/lib/libmpfr.dylib,
-					/usr/local/lib/libgmpxx.dylib,
-					/usr/local/lib/libgmp.dylib,
-					/usr/local/lib/libCGAL.11.0.2.dylib,
-					"/usr/local/lib/libboost_thread-mt.dylib",
-					"/usr/local/lib/libboost_system-mt.dylib",
-					"-lGLEW",
-					"-lglfw3",
-					"-ldl",
-					"-lassimp",
-					/usr/local/lib/libCGAL.11.0.2.dylib,
-					"/usr/local/lib/libboost_thread-mt.dylib",
-					"/usr/local/lib/libboost_system-mt.dylib",
-					"-lGLEW",
-					"-lglfw3",
-					"-ldl",
-					"-lassimp",
-				);
-				OTHER_REZFLAGS = "";
-				PRODUCT_NAME = main;
-				SECTORDER_FLAGS = "";
-				SYMROOT = /Volumes/RamDisk/cgal_test/linux_opengl_3_3_test;
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glm/0.9.7.1/include;
-				USE_HEADERMAP = NO;
-				WARNING_CFLAGS = (
-					"-Wmost",
-					"-Wno-four-char-constants",
-					"-Wno-unknown-pragmas",
-					"$(inherited)",
-				);
-			};
-			name = MinSizeRel;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2441B91BD0C9432CB333B3F5 /* Build configuration list for PBXNativeTarget "main" */ = {
+		0B55B1411225436090E129DB /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0B1200C9AB2547EE899FCE39 /* Debug */,
-				DB157A9170694BFC8BDA5560 /* Release */,
-				F9E05D29E98E4F58A1C17CDB /* MinSizeRel */,
-				505F0C5C50914BF28B31CF45 /* RelWithDebInfo */,
+				5BD7129D5FFC4DFB9872C49D /* Debug */,
+				C790E89D6D7140A1A53EAFD9 /* Release */,
+				996333C1C761453293438B25 /* MinSizeRel */,
+				09F4BE6BB15E4996ADBB3FB9 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		4E05F9AC05CC40E3BE258E67 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+		9B1B1202397D4C82A2E0DE37 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				57FC5891FD874F909586AC9E /* Debug */,
-				4E0FA6F3B1CA430AB5C9F9E5 /* Release */,
-				227ED9C94B604E699A72AAE3 /* MinSizeRel */,
-				3C91DC1AB62149F9BE859B60 /* RelWithDebInfo */,
+				E48E93B858F14D0B9D3C87DB /* Debug */,
+				4379557423924C7FBF65C44F /* Release */,
+				76237D6142D84CCC9C647BC7 /* MinSizeRel */,
+				21933BFB48E4454296825543 /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		9FDA989915CD4B138260017D /* Build configuration list for PBXProject "linux_opengl_3_3_test" */ = {
+		BEB5D8221A7E4D07AAC89268 /* Build configuration list for PBXNativeTarget "main" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1B65984900E74F8DACD5C57A /* Debug */,
-				0AFAEB159B0B4D0D8928D2F8 /* Release */,
-				313C44E788594943B3A31498 /* MinSizeRel */,
-				35056B0997AF44F484B88CF0 /* RelWithDebInfo */,
+				0F3EE9CEA2194D94BD04DC65 /* Debug */,
+				FA0DD9AD023847E2AFBC5744 /* Release */,
+				C889EF81D5A44889A288372B /* MinSizeRel */,
+				CB73663058EB4828B03438BD /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		B96AAB4344274EA7BF55617B /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+		CF8E945162694550B3958850 /* Build configuration list for PBXProject "linux_opengl_3_3_test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E6755EDE6264321B61D8F05 /* Debug */,
-				3D6E8BE976B04E889251FA40 /* Release */,
-				6FF2D0C87F0C48159B10A576 /* MinSizeRel */,
-				E52E05675CC84F509966CA58 /* RelWithDebInfo */,
+				3DDC9E42EFB44CBC9298035E /* Debug */,
+				B2BECA156EA24076B6EC4343 /* Release */,
+				7582C22B4BAB482797CA4CCF /* MinSizeRel */,
+				8659B927117E4B25A7458ECF /* RelWithDebInfo */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
