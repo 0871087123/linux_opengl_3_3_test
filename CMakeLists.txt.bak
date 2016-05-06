@@ -56,16 +56,20 @@ endif()
 
 include( CGAL_CreateSingleSourceCGALProgram )
 
-
 find_package(PkgConfig REQUIRED)
 pkg_search_module(GLFW REQUIRED glfw3)
 pkg_search_module(GLEW REQUIRED glew)
 pkg_search_module(ASSIMP REQUIRED assimp)
+pkg_search_module(EIGEN REQUIRED eigen3)
  include_directories(${GLFW_INCLUDE_DIRS})
  include_directories(${GLEW_INCLUDE_DIRS})
 include_directories(${ASSIMP_INCLUDE_DIRS})
+include_directories(${EIGEN_INCLUDE_DIRS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g --std=c++11")
-link_libraries(${GLEW_STATIC_LIBRARIES}  ${GLFW_STATIC_LIBRARIES} dl ${ASSIMP_STATIC_LIBRARIES})
+link_libraries(${EIGEN_STATIC_LIBRARIES} ${GLEW_STATIC_LIBRARIES}  ${GLFW_STATIC_LIBRARIES} dl ${ASSIMP_STATIC_LIBRARIES})
+
 
 create_single_source_cgal_program( "main.cpp" )
+
+
