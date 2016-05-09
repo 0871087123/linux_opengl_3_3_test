@@ -26,11 +26,26 @@
 #include <CGAL/Polyhedron_3.h>
 #include <CGAL/IO/Polyhedron_iostream.h>
 #include <CGAL/Polyhedron_items_with_id_3.h>
+#include <CGAL/Exact_predicates_exact_constructions_kernel.h>
+#include <CGAL/Boolean_set_operations_2.h>
+#include <list>
+
+#include <CGAL/Exact_predicates_inexact_constructions_kernel.h>
+#include <CGAL/Exact_predicates_exact_constructions_kernel.h>
+#include <CGAL/Constrained_Delaunay_triangulation_2.h>
+#include <CGAL/Delaunay_mesher_2.h>
+#include <CGAL/Delaunay_mesh_face_base_2.h>
+#include <CGAL/Delaunay_mesh_size_criteria_2.h>
+#include <CGAL/Triangulation_2.h>
+
 // HalfedgeGraph adaptors for Polyhedron_3
 #include <CGAL/boost/graph/graph_traits_Polyhedron_3.h>
 #include <CGAL/boost/graph/properties_Polyhedron_3.h>
 #include <CGAL/Null_matrix.h>
 #include <CGAL/Surface_mesh_deformation.h>
+#include <CGAL/Exact_integer.h>
+#include <CGAL/Extended_homogeneous.h>
+#include <CGAL/Nef_polyhedron_3.h>
 #include <fstream>
 #include <map>
 #include <queue>
@@ -95,16 +110,86 @@ typedef GT::FT FT;
 typedef FT (*Function)(Point_3);
 typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
 
+//typedef CGAL::Simple_cartesian<CGAL::Gmpz> Kernel;
 typedef CGAL::Epick Kernel;
+//typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel2;
+typedef CGAL::Homogeneous<CGAL::Epick>  Kernel2;
 typedef CGAL::Polyhedron_3<Kernel,CGAL::Polyhedron_items_with_id_3>  Polyhedron;
+typedef CGAL::Polyhedron_3<Kernel2>  Polyhedron2;
 typedef boost::graph_traits<Polyhedron>::vertex_descriptor    vertex_descriptor;
 typedef boost::graph_traits<Polyhedron>::vertex_iterator        vertex_iterator;
 typedef boost::graph_traits<Polyhedron>::halfedge_descriptor halfedge_descriptor;
 typedef boost::graph_traits<Polyhedron>::out_edge_iterator    out_edge_iterator;
+typedef CGAL::Nef_polyhedron_3<Kernel2>  Nef_polyhedron;
+typedef CGAL::Cartesian_converter<Kernel2, Kernel> converter;
 
 FT sphere_function (Point_3 p) {
     const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
     return x2+y2+z2-1;
+}
+
+// Can be used to convert polyhedron from exact to inexact and vice-versa
+template <class Polyhedron_input,
+class Polyhedron_output>
+struct Copy_polyhedron_to
+: public CGAL::Modifier_base<typename Polyhedron_output::HalfedgeDS>
+{
+    Copy_polyhedron_to(const Polyhedron_input& in_poly)
+    : in_poly(in_poly) {}
+    
+    void operator()(typename Polyhedron_output::HalfedgeDS& out_hds)
+    {
+        typedef typename Polyhedron_output::HalfedgeDS Output_HDS;
+        typedef typename Polyhedron_input::HalfedgeDS Input_HDS;
+        
+        CGAL::Polyhedron_incremental_builder_3<Output_HDS> builder(out_hds);
+        
+        typedef typename Polyhedron_input::Vertex_const_iterator Vertex_const_iterator;
+        typedef typename Polyhedron_input::Facet_const_iterator  Facet_const_iterator;
+        typedef typename Polyhedron_input::Halfedge_around_facet_const_circulator HFCC;
+        
+        builder.begin_surface(in_poly.size_of_vertices(),
+                              in_poly.size_of_facets(),
+                              in_poly.size_of_halfedges());
+        
+        for(Vertex_const_iterator
+            vi = in_poly.vertices_begin(), end = in_poly.vertices_end();
+            vi != end ; ++vi)
+        {
+            typename Polyhedron_output::Point_3 p(::CGAL::to_double( vi->point().x()),
+                                                  ::CGAL::to_double( vi->point().y()),
+                                                  ::CGAL::to_double( vi->point().z()));
+            builder.add_vertex(p);
+        }
+        
+        typedef CGAL::Inverse_index<Vertex_const_iterator> Index;
+        Index index( in_poly.vertices_begin(), in_poly.vertices_end());
+        
+        for(Facet_const_iterator
+            fi = in_poly.facets_begin(), end = in_poly.facets_end();
+            fi != end; ++fi)
+        {
+            HFCC hc = fi->facet_begin();
+            HFCC hc_end = hc;
+            builder.begin_facet ();
+            do {
+                builder.add_vertex_to_facet(index[hc->vertex()]);
+                ++hc;
+            } while( hc != hc_end);
+            builder.end_facet();
+        }
+        builder.end_surface();
+    } // end operator()(..)
+private:
+    const Polyhedron_input& in_poly;
+}; // end Copy_polyhedron_to<>
+
+template <class Poly_B, class Poly_A>
+void poly_copy(Poly_B& poly_b, const Poly_A& poly_a)
+{
+    poly_b.clear();
+    Copy_polyhedron_to<Poly_A, Poly_B> modifier(poly_a);
+    poly_b.delegate(modifier);
 }
 
 // Collect the vertices which are at distance less or equal to k
@@ -133,6 +218,7 @@ std::vector<vertex_descriptor> extract_k_ring(const Polyhedron &P, vertex_descri
 
 
 vector<Point_3> get_tr() {
+	Polyhedron poly1, poly2;
     Tr tr;            // 3D-Delaunay triangulation
     C2t3 c2t3 (tr);   // 2D-complex in 3D-Delaunay triangulation
     // defining the surface
@@ -153,27 +239,64 @@ vector<Point_3> get_tr() {
     Polyhedron poly;
     CGAL::output_surface_facets_to_polyhedron(c2t3, poly);
     CGAL::Surface_mesh_deformation<Polyhedron> deform(poly);
-    
-    vertex_iterator vb, ve;
-    boost::tie(vb,ve) = CGAL::vertices(poly);
 
-    std::vector<vertex_descriptor> cvertices_1 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), 20);
-    std::vector<vertex_descriptor> cvertices_2 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 97), 20);
-    
-//    deform.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
-//
-//    deform.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,0.3,0));
-    
+	// KENT WARN : 这一步很重要，没有会挂掉
+	set_halfedgeds_items_id(poly);
+
+	// Select and insert the vertices of the region of interest
+	vertex_iterator vb, ve;
+    boost::tie(vb,ve) = CGAL::vertices(poly);
+	std::vector<vertex_descriptor> roi = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), poly.size_of_vertices());
+	deform.insert_roi_vertices(roi.begin(), roi.end());
+
+	// Select and insert the control vertices
+	std::vector<vertex_descriptor> cvertices_1 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), 20);
+	deform.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
+
+    deform.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,0.4,0));
+	deform.deform();
+
+	// 构造上面那个球形完成
+	poly1 = poly;
+
+	// 构造下面那个球形开始
+	CGAL::output_surface_facets_to_polyhedron(c2t3, poly2);
+	CGAL::Surface_mesh_deformation<Polyhedron> deform2(poly2);
+
+	// KENT WARN : 这一步很重要，没有会挂掉
+	set_halfedgeds_items_id(poly2);
+
+	// Select and insert the vertices of the region of interest
+    boost::tie(vb,ve) = CGAL::vertices(poly2);
+	roi = extract_k_ring(poly2, *CGAL::cpp11::next(vb, 0), poly2.size_of_vertices());
+	deform2.insert_roi_vertices(roi.begin(), roi.end());
+
+	// Select and insert the control vertices
+	cvertices_1 = extract_k_ring(poly2, *CGAL::cpp11::next(vb, 0), 20);
+	deform2.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
+
+    deform2.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,-0.4,0));
+	deform2.deform();
+	// 构造下面那个球形完成
+
+	// 进行布尔操作
+    Polyhedron2 p1;
+    poly_copy(p1, poly1);
+	Nef_polyhedron ball1(p1);
+
+	ball1.convert_to_polyhedron(p1);
+
+	// OUTPUT points
     vector<Point_3> pts;
-    for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
-        auto it2 = it->facet_begin();
-        auto it3 = it2;
-        CGAL_For_all(it2, it3) {
-            pts.push_back(Point_3(it2->vertex()->point().x(),
-                                  it2->vertex()->point().y(),
-                                  it2->vertex()->point().z()));
-        }
-    }
+	for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
+		auto it2 = it->facet_begin();
+		auto it3 = it2;
+		CGAL_For_all(it2, it3) {
+			pts.push_back(Point_3(it2->vertex()->point().x(),
+								  it2->vertex()->point().y(),
+								  it2->vertex()->point().z()));
+		}
+	}
 
     cout << pts.size() << endl;
 
