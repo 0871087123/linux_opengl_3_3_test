@@ -31,6 +31,9 @@
 #include <CGAL/boost/graph/properties_Polyhedron_3.h>
 #include <CGAL/Null_matrix.h>
 #include <CGAL/Surface_mesh_deformation.h>
+#include <CGAL/Exact_integer.h>
+#include <CGAL/Extended_homogeneous.h>
+#include <CGAL/Nef_polyhedron_3.h>
 #include <fstream>
 #include <map>
 #include <queue>
@@ -95,12 +98,16 @@ typedef GT::FT FT;
 typedef FT (*Function)(Point_3);
 typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
 
+//typedef CGAL::Simple_cartesian<CGAL::Gmpz> Kernel;
 typedef CGAL::Epick Kernel;
+typedef CGAL::Homogeneous<CGAL::Exact_integer>  Kernel2;
+//typedef CGAL::Homogeneous<CGAL::Epick>  Kernel2;
 typedef CGAL::Polyhedron_3<Kernel,CGAL::Polyhedron_items_with_id_3>  Polyhedron;
 typedef boost::graph_traits<Polyhedron>::vertex_descriptor    vertex_descriptor;
 typedef boost::graph_traits<Polyhedron>::vertex_iterator        vertex_iterator;
 typedef boost::graph_traits<Polyhedron>::halfedge_descriptor halfedge_descriptor;
 typedef boost::graph_traits<Polyhedron>::out_edge_iterator    out_edge_iterator;
+typedef CGAL::Nef_polyhedron_3<Kernel2>  Nef_polyhedron;
 
 FT sphere_function (Point_3 p) {
     const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
@@ -133,6 +140,7 @@ std::vector<vertex_descriptor> extract_k_ring(const Polyhedron &P, vertex_descri
 
 
 vector<Point_3> get_tr() {
+	Polyhedron poly1, poly2;
     Tr tr;            // 3D-Delaunay triangulation
     C2t3 c2t3 (tr);   // 2D-complex in 3D-Delaunay triangulation
     // defining the surface
@@ -153,27 +161,61 @@ vector<Point_3> get_tr() {
     Polyhedron poly;
     CGAL::output_surface_facets_to_polyhedron(c2t3, poly);
     CGAL::Surface_mesh_deformation<Polyhedron> deform(poly);
-    
-    vertex_iterator vb, ve;
-    boost::tie(vb,ve) = CGAL::vertices(poly);
 
-    std::vector<vertex_descriptor> cvertices_1 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), 20);
-    std::vector<vertex_descriptor> cvertices_2 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 97), 20);
-    
-//    deform.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
-//
-//    deform.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,0.3,0));
-    
+	// KENT WARN : 这一步很重要，没有会挂掉
+	set_halfedgeds_items_id(poly);
+
+	// Select and insert the vertices of the region of interest
+	vertex_iterator vb, ve;
+    boost::tie(vb,ve) = CGAL::vertices(poly);
+	std::vector<vertex_descriptor> roi = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), poly.size_of_vertices());
+	deform.insert_roi_vertices(roi.begin(), roi.end());
+
+	// Select and insert the control vertices
+	std::vector<vertex_descriptor> cvertices_1 = extract_k_ring(poly, *CGAL::cpp11::next(vb, 0), 20);
+	deform.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
+
+    deform.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,0.4,0));
+	deform.deform();
+
+	// 构造上面那个球形完成
+	poly1 = poly;
+
+	// 构造下面那个球形开始
+	CGAL::output_surface_facets_to_polyhedron(c2t3, poly2);
+	CGAL::Surface_mesh_deformation<Polyhedron> deform2(poly2);
+
+	// KENT WARN : 这一步很重要，没有会挂掉
+	set_halfedgeds_items_id(poly2);
+
+	// Select and insert the vertices of the region of interest
+    boost::tie(vb,ve) = CGAL::vertices(poly2);
+	roi = extract_k_ring(poly2, *CGAL::cpp11::next(vb, 0), poly2.size_of_vertices());
+	deform2.insert_roi_vertices(roi.begin(), roi.end());
+
+	// Select and insert the control vertices
+	cvertices_1 = extract_k_ring(poly2, *CGAL::cpp11::next(vb, 0), 20);
+	deform2.insert_control_vertices(cvertices_1.begin(), cvertices_1.end());
+
+    deform2.translate(cvertices_1.begin(), cvertices_1.end(), Eigen::Vector3d(0,-0.4,0));
+	deform2.deform();
+	// 构造下面那个球形完成
+
+	// 进行布尔操作
+	Nef_polyhedron ball1;
+
+
+	// OUTPUT points
     vector<Point_3> pts;
-    for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
-        auto it2 = it->facet_begin();
-        auto it3 = it2;
-        CGAL_For_all(it2, it3) {
-            pts.push_back(Point_3(it2->vertex()->point().x(),
-                                  it2->vertex()->point().y(),
-                                  it2->vertex()->point().z()));
-        }
-    }
+	for (auto it = poly.facets_begin(); it != poly.facets_end(); it++) {
+		auto it2 = it->facet_begin();
+		auto it3 = it2;
+		CGAL_For_all(it2, it3) {
+			pts.push_back(Point_3(it2->vertex()->point().x(),
+								  it2->vertex()->point().y(),
+								  it2->vertex()->point().z()));
+		}
+	}
 
     cout << pts.size() << endl;
 
