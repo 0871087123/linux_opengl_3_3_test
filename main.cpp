@@ -112,16 +112,15 @@ typedef CGAL::Implicit_surface_3<GT, Function> Surface_3;
 
 //typedef CGAL::Simple_cartesian<CGAL::Gmpz> Kernel;
 typedef CGAL::Epick Kernel;
-//typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel2;
-typedef CGAL::Homogeneous<CGAL::Epick>  Kernel2;
+typedef CGAL::Exact_predicates_exact_constructions_kernel Kernel2;
+//typedef CGAL::Simple_cartesian<double> Kernel2;
 typedef CGAL::Polyhedron_3<Kernel,CGAL::Polyhedron_items_with_id_3>  Polyhedron;
 typedef CGAL::Polyhedron_3<Kernel2>  Polyhedron2;
 typedef boost::graph_traits<Polyhedron>::vertex_descriptor    vertex_descriptor;
 typedef boost::graph_traits<Polyhedron>::vertex_iterator        vertex_iterator;
 typedef boost::graph_traits<Polyhedron>::halfedge_descriptor halfedge_descriptor;
 typedef boost::graph_traits<Polyhedron>::out_edge_iterator    out_edge_iterator;
-typedef CGAL::Nef_polyhedron_3<Kernel2>  Nef_polyhedron;
-typedef CGAL::Cartesian_converter<Kernel2, Kernel> converter;
+typedef CGAL::Nef_polyhedron_3<Kernel2> Nef_polyhedron;
 
 FT sphere_function (Point_3 p) {
     const FT x2=p.x()*p.x(), y2=p.y()*p.y(), z2=p.z()*p.z();
@@ -280,11 +279,15 @@ vector<Point_3> get_tr() {
 	// 构造下面那个球形完成
 
 	// 进行布尔操作
-    Polyhedron2 p1;
+    Polyhedron2 p1,p2;
     poly_copy(p1, poly1);
-	Nef_polyhedron ball1(p1);
+    poly_copy(p2, poly2);
+    Nef_polyhedron ball1(p1);
+    Nef_polyhedron ball2(p2);
+    Nef_polyhedron target = ball1 * ball2;
 
-	ball1.convert_to_polyhedron(p1);
+	target.convert_to_polyhedron(p1);
+    poly_copy(poly, p1);
 
 	// OUTPUT points
     vector<Point_3> pts;
